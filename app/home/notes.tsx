@@ -17,12 +17,24 @@ export default function Notes() {
   }
 
   return (
-    <div className="z-10 h-full w-full animate-fade-up opacity-0 p-4 flex flex-wrap" style={{ animationDelay: '0.15s' }}>
-      {notes.map((note) => (
-        <Note
-          key={note.id} note={note} />
-      ))}
-    </div>
+    <>
+      <div className="animate-fade-up opacity-0 z-10 h-full w-full p-4">
+        <h1 className="bg-gradient-to-br from-black to-red-900 bg-clip-text text-center font-display text-3xl font-bold tracking-[-0.02em] drop-shadow-sm md:text-6xl md:leading-[5rem]">
+          My Notes
+        </h1>
+
+        <div className="w-full flex justify-center">
+          <input className="rounded-full border-gray-300 w-1/2 mt-4 mb-4" type="text" name="" id="" placeholder="Search here (Ctrl K)" />
+        </div>
+
+        <div className="flex flex-wrap" style={{ animationDelay: '0.15s' }}>
+          {notes.map((note) => (
+            <Note
+              key={note.id} note={note} />
+          ))}
+        </div>
+      </div>
+    </>
   )
 }
 
@@ -30,7 +42,7 @@ function Note({ note }: { note: Note }) {
   return (
     <div className="p-2 w-3/12">
       <div
-        className="p-3 h-20 rounded-md bg-neutral-100 shadow-md hover:shadow-xl transition-shadow duration-500 cursor-pointer"
+        className="p-3 h-max rounded-md bg-neutral-100 shadow-md hover:shadow-xl transition-shadow duration-500 cursor-pointer"
       >
         <div className="text-2xl text-black truncate">
           {note.title}
