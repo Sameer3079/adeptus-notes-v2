@@ -6,10 +6,12 @@ import WebVitals from "@/components/home/web-vitals";
 import ComponentGrid from "@/components/home/component-grid";
 import Image from "next/image";
 import { nFormatter } from "@/lib/utils";
+import Modal from "@/components/shared/modal";
+import Link from "next/link";
 
 const emailLink = "mailto:smrbasil4@gmail.com";
 
-export default async function Home() {
+export default async function Root() {
   return (
     <>
       <div className="z-10 w-full max-w-xl px-5 xl:px-0">
@@ -51,11 +53,9 @@ export default async function Home() {
             </svg>
             <p>Sign up</p>
           </a>
-          <a
+          <Link
             className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-black shadow-md transition-colors hover:border-gray-800"
-            href="https://github.com/Sameer3079"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/home"
           >
             <svg
               className="h-4 w-4 group-hover:text-black"
@@ -72,7 +72,7 @@ export default async function Home() {
               />
             </svg>
             <p>Login</p>
-          </a>
+          </Link>
         </div>
       </div>
     </>
