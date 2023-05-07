@@ -1,5 +1,5 @@
+
 import Card from "@/components/home/card";
-import Balancer from "react-wrap-balancer";
 import { DEPLOY_URL } from "@/lib/constants";
 import { Github, Twitter } from "@/components/shared/icons";
 import WebVitals from "@/components/home/web-vitals";
@@ -9,16 +9,9 @@ import { nFormatter } from "@/lib/utils";
 import Modal from "@/components/shared/modal";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
-
-function Greeting(props: { name: string }) {
-  return (
-    <div className="animate-fade-up-reverse">
-      <h1 className="animate-fade-up bg-gradient-to-br from-black to-red-900 bg-clip-text text-center font-display text-4xl font-bold tracking-[-0.02em] text-transparent opacity-0 drop-shadow-sm md:text-7xl md:leading-[5rem]">
-        <Balancer>Welcome {props.name}</Balancer>
-      </h1>
-    </div>
-  );
-}
+import Note from "models/note.model";
+import Greeting from './greeting';
+import Notes from "./notes";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
@@ -36,9 +29,8 @@ export default async function Home() {
 
   return (
     <>
-      <div className="z-10 w-full max-w-xl px-5 xl:px-0">
-        <Greeting name={name || "Sameer"} />
-      </div>
+      <Greeting name={name || "Sameer"} />
+      <Notes />
     </>
   );
 }
